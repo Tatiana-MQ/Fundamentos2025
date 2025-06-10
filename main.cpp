@@ -1,3 +1,4 @@
+
 #include <iostream> // Profe, esto es una libreria para usar cout y cin
 #include <string>   // Profe, esto es una libreria para usar textos digamos los strings
 #include <iomanip>  // Profe, esto lo agregue para alinear columnas con setw, o ordenar bien a la hora de dar aprobados y reporbados, con sus datos
@@ -7,7 +8,8 @@
 #undef max // Profe, con esto se evita error de linea con max
 
 using namespace std;
-
+int main()
+{
 // Esto es una funcion para validar que un string tenga solo letras y no tenga espacios
 bool soloLetrasSinEspaciosUNA(const string& textoUNA) {
     for (char letraUNA : textoUNA) {
