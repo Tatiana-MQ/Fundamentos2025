@@ -1,4 +1,4 @@
-Yo: #include <iostream> // Profe, esto es una libreria para usar cout y cin
+#include <iostream> // Profe, esto es una libreria para usar cout y cin
 #include <string>   // Profe, esto es una libreria para usar textos digamos los strings
 #include <vector>   // Profe, esto lo agregue para usar vectores dinamicos
 #include <iomanip>  // Profe, esto lo agregue para alinear columnas con setw, o ordenar bien a la hora de dar aprobados y reporbados, con sus datos
