@@ -1,11 +1,8 @@
-#include <iostream> // Profe, esto es una libreria para usar cout y cin
+Yo: #include <iostream> // Profe, esto es una libreria para usar cout y cin
 #include <string>   // Profe, esto es una libreria para usar textos digamos los strings
-#include <iomanip>  // Profe, esto lo agregue para alinear columnas con setw, o ordenar bien a la hora de dar aprobados y reporbados, con sus datos
 #include <vector>   // Profe, esto lo agregue para usar vectores dinamicos
+#include <iomanip>  // Profe, esto lo agregue para alinear columnas con setw, o ordenar bien a la hora de dar aprobados y reporbados, con sus datos
 #include <cctype>   // Profe, esto es para usar isalpha e isdigit o lo de ordenar bien 
-#include <windows.h> // Profe, esto es una libreria de Windows para funciones específicas del sistema operativo, como cambiar colores en consola
-#include <limits> // Profe, esto es otra libreria estándar de C++ para manejar límites y propiedades de tipos de datos, usada para limpiar el buffer de entrada
-#undef max // Profe, con esto se evita error de linea con max
 
 using namespace std;
 
@@ -27,91 +24,6 @@ bool soloDigitosUNA(const string& textoUNA) {
 }
 
 int main() {
-    int cantidaddeestudiantesUNA = 0;
-    int intentosUNA = 0;
-    const int maxIntentosUNA = 5; // Aca es lo de maximo 5 intentos para ingresar bien
-    const int limiteestudiantesUNA = 100; // Esto es el limite de estudiantes
-    cout<< endl;
-    
-    cout<<"------------------------------------------------------------\n";
-    cout<< right << setw(40)<< "Bienvenido al programa"<<endl;
-    cout<<"------------------------------------------------------------\n";
-    
-
-    // Esto es un ciclo que le da 5 intentos al usuario para meter una cantidad válida de estudiantes
-    while (intentosUNA < maxIntentosUNA){
-        cout<< endl;
-        cout<< "Ingrese el numero de estudiantes para agregar sus notas (entre 1 y " << limiteestudiantesUNA << "): ";
-        cin>> cantidaddeestudiantesUNA;
-
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << endl;
-            
-            cout << "Eso no es un numero, intentelo de nuevo" << endl;
-            
-            intentosUNA++;
-        } else if (cantidaddeestudiantesUNA <= 0 || cantidaddeestudiantesUNA > limiteestudiantesUNA) {
-            cout<< endl;
-            cout << "El numero debe estar entre 1 y " << limiteestudiantesUNA << endl;
-            intentosUNA++;
-        } else {
-            char respuestaUNA;
-            cout<< endl;
-            cout << "Esta seguro que desea evaluar " << cantidaddeestudiantesUNA << " estudiantes de la UNA? (S/N): ";
-            cin >> respuestaUNA;
-            respuestaUNA = toupper(respuestaUNA);
-            if (respuestaUNA == 'S') {
-                break;
-            } else {
-                cout<< endl;
-                cout << "Por favor, ingrese la cantidad nuevamente\n";
-                intentosUNA++;
-                continue;
-            }
-        }
-        cout<< endl;
-        cout << "Intento " << intentosUNA << " de " << maxIntentosUNA << endl;
-    }
-
-  if (intentosUNA == maxIntentosUNA) {
-    char volverIntentarUNA;
-    
-    cout << endl;
-    cout << "Demasiados intentos fallidos." << endl;
-    
-
-    while (true) {
-        cout << "¿Desea volver a intentar agregar los alumnos? (S/N): ";
-        cin >> volverIntentarUNA;
-        volverIntentarUNA = toupper(volverIntentarUNA);
-
-        if (volverIntentarUNA == 'S' || volverIntentarUNA == 'N') {
-            break;  // Respuesta válida, salir del ciclo
-        } else {
-            
-            cout << "Error: respuesta no válida. Por favor ingrese 'S' o 'N'." << endl;
-            
-            // Limpiar buffer en caso de que haya más caracteres
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-    }
-    if (volverIntentarUNA == 'S') {
-        intentosUNA = 0;
-        cantidaddeestudiantesUNA = 0;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-        main();  // Volver a ejecutar main
-        return 0; // Terminar la ejecución actual
-    } else {
-        
-        cout << endl << "Gracias por usar el programa. ¡Hasta luego!" << endl;
-        
-        return 1;
-    }
-}
-
     // Aca creamos los vectores para almacenar datos de los estudiantes
     vector<string> nombresUNA;
     vector<string> primerApellidoUNA;
@@ -135,7 +47,6 @@ int main() {
     cin.ignore(); // Esto es para limpiar el buffer
 
     while (numeroestudianteUNA < cantidaddeestudiantesUNA) {
-        
         cout << "\n-------------- Estudiante #" << (numeroestudianteUNA + 1) << " --------------\n";
         
         while (true) {
@@ -144,10 +55,8 @@ int main() {
             cout << "Ingrese el primer nombre:";
             getline(cin, nombresUNA[numeroestudianteUNA]);
             if (!soloLetrasSinEspaciosUNA(nombresUNA[numeroestudianteUNA])) {
-                
                 cout<< endl;
                 cout << "Error, el nombre debe contener solo letras y no puede tener espacios\n";
-                
             } else {
                 break;
             }
@@ -158,10 +67,8 @@ int main() {
             cout << "Ingrese el primer apellido:";
             getline(cin, primerApellidoUNA[numeroestudianteUNA]);
             if (!soloLetrasSinEspaciosUNA(primerApellidoUNA[numeroestudianteUNA])) {
-                
                 cout<< endl;
                 cout << "Error, el primer apellido debe contener solo letras y no puede tener espacios\n";
-                
             } else {
                 break;
             }
@@ -175,7 +82,7 @@ int main() {
                 
                 cout<< endl;
                 cout << "Error, el segundo apellido debe contener solo letras y no puede tener espacios\n";
-                
+               
             } else {
                 break;
             }
@@ -206,7 +113,6 @@ int main() {
             cout<<"------------------------------------------------------------";
 
             if (!soloDigitosUNA(cedulaTemporalUNA) || cedulaTemporalUNA.length() != 9) {
-                
                 cout<< endl;
                 cout << "Error, la cedula debe contener exactamente 9 digitos y numericos \n";
                 
@@ -217,5 +123,4 @@ int main() {
         }
 
     return 0;
-}
 }
